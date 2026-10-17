@@ -9,22 +9,36 @@ button,select,input{padding:8px;border-radius:6px;border:0;margin:4px}button{bac
 <canvas id="cv"></canvas><br><button onclick="doMask()">Track mask through clip</button><button onclick="pts=[];draw()">Clear</button><div id="mp"></div></div>
 <div class="card"><h3>3. Pick a preset</h3><div class="presets" id="ps"></div>
 <p>Reference image (character / product / style): <input type="file" id="ref" accept="image/*"></p>
-<p><input id="prompt" placeholder="optional extra description" size="60"> seed <input id="seed" type="number" value="0" style="width:90px"></p>
-<button onclick="run()">Generate</button> <span id="st"></span></div>
+<p><small>For Recast, use one clearly visible person and a reference with similar framing and body proportions.</small></p>
+<p><input id="prompt" placeholder="describe the desired result (e.g. a blue sphere)" size="60"> seed <input id="seed" type="number" value="0" style="width:90px"></p>
+<button id="generate" onclick="run()">Generate</button> <span id="st" role="status" aria-live="polite"></span></div>
 <div class="card"><h3>Result</h3><div id="out"></div></div>
 <script>
-let sid=null,pts=[],img=new Image(),preset=null;const cv=document.getElementById('cv'),cx=cv.getContext('2d');
-fetch('/api/presets').then(r=>r.json()).then(ps=>{const el=document.getElementById('ps');ps.forEach(p=>{const b=document.createElement('span');
-b.className='p';b.textContent=p.id+' · '+p.mode;b.onclick=()=>{preset=p.id;[...el.children].forEach(c=>c.classList.remove('on'));b.classList.add('on')};el.appendChild(b)})});
-async function up(){const f=new FormData();f.append('video',vid.files[0]);const j=await (await fetch('/api/upload',{method:'POST',body:f})).json();
-sid=j.session;img.onload=()=>{cv.width=img.width;cv.height=img.height;draw()};img.src='/api/frame/'+sid}
-function draw(){cx.drawImage(img,0,0);pts.forEach(p=>{cx.fillStyle=p[2]?'#0f0':'#f00';cx.beginPath();cx.arc(p[0],p[1],8,0,7);cx.fill()})}
-cv.onclick=e=>{const r=cv.getBoundingClientRect(),s=cv.width/r.width;pts.push([(e.clientX-r.left)*s,(e.clientY-r.top)*s,e.shiftKey?0:1]);draw()}
-async function doMask(){const f=new FormData();f.append('sid',sid);f.append('points',JSON.stringify(pts));st.textContent='tracking…';
-const j=await (await fetch('/api/mask',{method:'POST',body:f})).json();mp.innerHTML='<img src="'+j.preview+'" style="max-width:100%">';st.textContent=''}
-async function run(){const f=new FormData();f.append('sid',sid);f.append('preset',preset);f.append('prompt',prompt.value);f.append('seed',seed.value);
-if(ref.files[0])f.append('reference',ref.files[0]);const r=await fetch('/api/run',{method:'POST',body:f});const j=await r.json();
-if(!r.ok){st.textContent='error: '+JSON.stringify(j);return}st.textContent='queued '+j.prompt_id;poll(j.prompt_id)}
-async function poll(id){const j=await (await fetch('/api/status/'+id)).json();if(!j.done){setTimeout(()=>poll(id),3000);return}
-st.textContent='done';out.innerHTML=j.outputs.map(u=>'<video controls loop autoplay src="'+u+'" style="max-width:100%"></video>').join('')}
+let sid=null,pts=[],img=new Image(),preset=null;
+const el=Object.fromEntries(['cv','vid','ps','ref','prompt','seed','st','mp','out','generate'].map(id=>[id,document.getElementById(id)]));
+const cx=el.cv.getContext('2d');
+async function request(url,options){const r=await fetch(url,options);const j=await r.json();if(!r.ok)throw Error(typeof j.detail==='string'?j.detail:JSON.stringify(j.detail||j));return j}
+request('/api/presets').then(ps=>ps.forEach(p=>{const b=document.createElement('button');
+b.type='button';b.className='p';b.textContent=p.id+' · '+p.mode;
+b.onclick=()=>{preset=p.id;[...el.ps.children].forEach(c=>c.classList.remove('on'));b.classList.add('on')};el.ps.appendChild(b)})).catch(e=>el.st.textContent=e.message);
+async function up(){try{if(!el.vid.files[0])throw Error('Choose a video first');el.st.textContent='Uploading…';
+const f=new FormData();f.append('video',el.vid.files[0]);const j=await request('/api/upload',{method:'POST',body:f});
+sid=j.session;pts=[];el.mp.replaceChildren();el.out.replaceChildren();
+img.onload=()=>{el.cv.width=img.width;el.cv.height=img.height;draw()};img.src='/api/frame/'+sid;el.st.textContent='Clip ready';
+}catch(e){el.st.textContent=e.message}}
+function draw(){if(!img.complete||!img.naturalWidth)return;cx.drawImage(img,0,0);pts.forEach(p=>{cx.fillStyle=p[2]?'#0f0':'#f00';cx.beginPath();cx.arc(p[0],p[1],8,0,7);cx.fill()})}
+el.cv.onclick=e=>{if(!sid)return;const r=el.cv.getBoundingClientRect();pts.push([(e.clientX-r.left)*el.cv.width/r.width,(e.clientY-r.top)*el.cv.height/r.height,e.shiftKey?0:1]);draw()};
+async function doMask(){try{if(!sid||!pts.length)throw Error('Upload a clip and click the subject first');
+const f=new FormData();f.append('sid',sid);f.append('points',JSON.stringify(pts));el.st.textContent='Tracking…';
+const j=await request('/api/mask',{method:'POST',body:f});const preview=new Image();preview.src=j.preview;preview.style.maxWidth='100%';el.mp.replaceChildren(preview);el.st.textContent='Mask ready';
+}catch(e){el.st.textContent=e.message}}
+async function run(){try{if(!sid||!preset)throw Error('Upload a clip and choose a preset first');
+const f=new FormData();f.append('sid',sid);f.append('preset',preset);f.append('prompt',el.prompt.value);f.append('seed',el.seed.value);
+if(el.ref.files[0])f.append('reference',el.ref.files[0]);el.generate.disabled=true;
+const j=await request('/api/run',{method:'POST',body:f});el.st.textContent='Queued';poll(j.prompt_id);
+}catch(e){el.generate.disabled=false;el.st.textContent=e.message}}
+async function poll(id){try{const j=await request('/api/status/'+id);if(!j.done){el.st.textContent=j.status==='queued'?'Queued':'Generating…';setTimeout(()=>poll(id),3000);return}
+if(j.status!=='succeeded')throw Error(j.error||'Generation failed');
+el.st.textContent='Done';el.out.replaceChildren(...j.outputs.map(u=>{const v=document.createElement('video');v.controls=true;v.loop=true;v.autoplay=true;v.src=u;v.style.maxWidth='100%';return v}));el.generate.disabled=false;
+}catch(e){el.generate.disabled=false;el.st.textContent=e.message}}
 </script></body></html>

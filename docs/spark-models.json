@@ -1,0 +1,106 @@
+{
+  "path_base": "/home/admin/image_gen/openjutsu/ComfyUI",
+  "verified": "All nine installed files SHA-256 checked against the pinned download manifest.",
+  "total_bytes": 83010511102,
+  "models": [
+    {
+      "id": "wan22_animate_14b_bf16",
+      "repo_id": "Comfy-Org/Wan_2.2_ComfyUI_Repackaged",
+      "revision": "ee6f4a40737a995bf5818954cfce6d59443b0f04",
+      "filename": "split_files/diffusion_models/wan2.2_animate_14B_bf16.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/ee6f4a40737a995bf5818954cfce6d59443b0f04/split_files/diffusion_models/wan2.2_animate_14B_bf16.safetensors",
+      "target_rel": "models/diffusion_models/wan2.2_animate_14B_bf16.safetensors",
+      "size": 34549787368,
+      "sha256": "7d37cb0120488dec2a061135aa3018426925318a60838c3de935c829abc88667",
+      "license": "apache-2.0"
+    },
+    {
+      "id": "wan21_vace_14b_fp16",
+      "repo_id": "Comfy-Org/Wan_2.1_ComfyUI_repackaged",
+      "revision": "123acf1cc74bccbb9bfff8ac1ee72edc08c2341d",
+      "filename": "split_files/diffusion_models/wan2.1_vace_14B_fp16.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/123acf1cc74bccbb9bfff8ac1ee72edc08c2341d/split_files/diffusion_models/wan2.1_vace_14B_fp16.safetensors",
+      "target_rel": "models/diffusion_models/wan2.1_vace_14B_fp16.safetensors",
+      "size": 34675323640,
+      "sha256": "f202a5c59b8a91ada1862c46a038214f1f7f216c61ec8350d25f69b919da4307",
+      "license": "apache-2.0"
+    },
+    {
+      "id": "wan21_vae_bf16",
+      "repo_id": "Kijai/WanVideo_comfy",
+      "revision": "8260d429d19fd7a72304cad059160b95d843913f",
+      "filename": "Wan2_1_VAE_bf16.safetensors",
+      "url": "https://huggingface.co/Kijai/WanVideo_comfy/resolve/8260d429d19fd7a72304cad059160b95d843913f/Wan2_1_VAE_bf16.safetensors",
+      "target_rel": "models/vae/Wan2_1_VAE_bf16.safetensors",
+      "size": 253806278,
+      "sha256": "1ab9a32cc2c740f6e39d80d367ce5dcc28db8c71b79b28670546b8973e9d75f9",
+      "license": "apache-2.0 (upstream Wan; Kijai repack repository has no repository-level license field)"
+    },
+    {
+      "id": "umt5_xxl_fp16_shared",
+      "repo_id": "Comfy-Org/Wan_2.1_ComfyUI_repackaged",
+      "revision": "123acf1cc74bccbb9bfff8ac1ee72edc08c2341d",
+      "filename": "split_files/text_encoders/umt5_xxl_fp16.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/123acf1cc74bccbb9bfff8ac1ee72edc08c2341d/split_files/text_encoders/umt5_xxl_fp16.safetensors",
+      "target_rel": "models/text_encoders/umt5_xxl_fp16.safetensors",
+      "size": 11366399385,
+      "sha256": "7b8850f1961e1cf8a77cca4c964a358d303f490833c6c087d0cff4b2f99db2af",
+      "license": "apache-2.0"
+    },
+    {
+      "id": "clip_vision_h_fp16",
+      "repo_id": "Comfy-Org/Wan_2.1_ComfyUI_repackaged",
+      "revision": "123acf1cc74bccbb9bfff8ac1ee72edc08c2341d",
+      "filename": "split_files/clip_vision/clip_vision_h.safetensors",
+      "url": "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/123acf1cc74bccbb9bfff8ac1ee72edc08c2341d/split_files/clip_vision/clip_vision_h.safetensors",
+      "target_rel": "models/clip_vision/clip_vision_h.safetensors",
+      "size": 1264219396,
+      "sha256": "64a7ef761bfccbadbaa3da77366aac4185a6c58fa5de5f589b42a65bcc21f161",
+      "license": "apache-2.0 (Comfy-Org repack repository declaration)"
+    },
+    {
+      "id": "sam21_hiera_large_fp16",
+      "repo_id": "Kijai/sam2-safetensors",
+      "revision": "f885607d88bb3f9145efa49c3e3c50a9e5bf13eb",
+      "filename": "sam2.1_hiera_large-fp16.safetensors",
+      "url": "https://huggingface.co/Kijai/sam2-safetensors/resolve/f885607d88bb3f9145efa49c3e3c50a9e5bf13eb/sam2.1_hiera_large-fp16.safetensors",
+      "target_rel": "models/sam2/sam2.1_hiera_large-fp16.safetensors",
+      "size": 448999828,
+      "sha256": "278af5296fcc153aa94645a4981e93fe8b7a936a9fa27dbd71e8c850df6d7038",
+      "license": "apache-2.0"
+    },
+    {
+      "id": "dwpose_yolox_l_torchscript",
+      "repo_id": "hr16/yolox-onnx",
+      "revision": "a124b32c3b7c5cebda1c7cd96178f0f9d2050125",
+      "filename": "yolox_l.torchscript.pt",
+      "url": "https://huggingface.co/hr16/yolox-onnx/resolve/a124b32c3b7c5cebda1c7cd96178f0f9d2050125/yolox_l.torchscript.pt",
+      "target_rel": "models/annotator/hr16/yolox-onnx/yolox_l.torchscript.pt",
+      "size": 217697649,
+      "sha256": "80bc14b13c260c24b3014cd42c02994bf52296ab8fa2d80a60b6afe08c93ef42",
+      "license": "apache-2.0"
+    },
+    {
+      "id": "dwpose_ucoco_384_torchscript",
+      "repo_id": "hr16/DWPose-TorchScript-BatchSize5",
+      "revision": "359d662a9b33b73f6d0f21732baf8845f17bb4be",
+      "filename": "dw-ll_ucoco_384_bs5.torchscript.pt",
+      "url": "https://huggingface.co/hr16/DWPose-TorchScript-BatchSize5/resolve/359d662a9b33b73f6d0f21732baf8845f17bb4be/dw-ll_ucoco_384_bs5.torchscript.pt",
+      "target_rel": "models/annotator/hr16/DWPose-TorchScript-BatchSize5/dw-ll_ucoco_384_bs5.torchscript.pt",
+      "size": 135059124,
+      "sha256": "d86a0b2b59fddc0901a7076e9f59c9f8602602133ed72511c693fd11eea23d91",
+      "license": "apache-2.0"
+    },
+    {
+      "id": "depth_anything_v2_small",
+      "repo_id": "depth-anything/Depth-Anything-V2-Small",
+      "revision": "03876f8651c73a60fe4c2c48294e09fcb6838fcf",
+      "filename": "depth_anything_v2_vits.pth",
+      "url": "https://huggingface.co/depth-anything/Depth-Anything-V2-Small/resolve/03876f8651c73a60fe4c2c48294e09fcb6838fcf/depth_anything_v2_vits.pth",
+      "target_rel": "models/annotator/depth-anything/Depth-Anything-V2-Small/depth_anything_v2_vits.pth",
+      "size": 99218434,
+      "sha256": "715fade13be8f229f8a70cc02066f656f2423a59effd0579197bbf57860e1378",
+      "license": "apache-2.0"
+    }
+  ]
+}

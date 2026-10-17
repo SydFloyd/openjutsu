@@ -1,0 +1,18 @@
+{
+  "server": "http://127.0.0.1:8191",
+  "registered_classes": 1196,
+  "workflows": {
+    "recast_wan22_animate.json": {
+      "pass": true,
+      "errors": []
+    },
+    "restyle_wan_vace_depth.json": {
+      "pass": true,
+      "errors": []
+    },
+    "swap_wan_vace.json": {
+      "pass": true,
+      "errors": []
+    }
+  }
+}

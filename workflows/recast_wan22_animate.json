@@ -9,7 +9,7 @@
  "2": {
   "class_type": "CLIPLoader",
   "inputs": {
-   "clip_name": "umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+   "clip_name": "umt5_xxl_fp16.safetensors",
    "type": "wan",
    "device": "default"
   }
@@ -17,7 +17,7 @@
  "3": {
   "class_type": "VAELoader",
   "inputs": {
-   "vae_name": "wan_2.1_vae.safetensors"
+   "vae_name": "Wan2_1_VAE_bf16.safetensors"
   }
  },
  "4": {
@@ -27,7 +27,7 @@
     "1",
     0
    ],
-   "shift": 8.0
+   "shift": 5.0
   }
  },
  "5": {
@@ -100,9 +100,9 @@
    ],
    "detect_hand": "enable",
    "detect_body": "enable",
-   "detect_face": "enable",
+   "detect_face": "disable",
    "resolution": 512,
-   "bbox_detector": "yolox_l.onnx",
+   "bbox_detector": "yolox_l.torchscript.pt",
    "pose_estimator": "dw-ll_ucoco_384_bs5.torchscript.pt",
    "scale_stick_for_xinsr_cn": "disable"
   }
@@ -163,7 +163,7 @@
    ],
    "seed": 0,
    "steps": 20,
-   "cfg": 5.0,
+   "cfg": 1.0,
    "sampler_name": "uni_pc",
    "scheduler": "simple",
    "denoise": 1.0
@@ -216,8 +216,7 @@
     0
    ],
    "filename_prefix": "openjutsu/out",
-   "format": "auto",
-   "codec": "auto"
+   "format": "mp4"
   }
  }
 }

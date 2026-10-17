@@ -1,0 +1,12 @@
+{
+  "method": "Manual benchmark reference alignment: scale the original procedural reference by 0.65 and translate its nose to the first driver nose. This is fixture preparation, not automatic app pose retargeting.",
+  "scale": 0.65,
+  "offset": [
+    -9,
+    158
+  ],
+  "source_nose": [
+    260.9182526816925,
+    242.63590510189533
+  ]
+}

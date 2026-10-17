@@ -9,7 +9,7 @@
  "2": {
   "class_type": "CLIPLoader",
   "inputs": {
-   "clip_name": "umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+   "clip_name": "umt5_xxl_fp16.safetensors",
    "type": "wan",
    "device": "default"
   }
@@ -17,7 +17,7 @@
  "3": {
   "class_type": "VAELoader",
   "inputs": {
-   "vae_name": "wan_2.1_vae.safetensors"
+   "vae_name": "Wan2_1_VAE_bf16.safetensors"
   }
  },
  "4": {
@@ -78,7 +78,7 @@
     "11",
     0
    ],
-   "ckpt_name": "depth_anything_v2_vitl.pth",
+   "ckpt_name": "depth_anything_v2_vits.pth",
    "resolution": 512
   }
  },
@@ -133,7 +133,7 @@
    ],
    "seed": 0,
    "steps": 20,
-   "cfg": 5.0,
+   "cfg": 3.0,
    "sampler_name": "uni_pc",
    "scheduler": "simple",
    "denoise": 1.0
@@ -186,8 +186,7 @@
     0
    ],
    "filename_prefix": "openjutsu/out",
-   "format": "auto",
-   "codec": "auto"
+   "format": "mp4"
   }
  }
 }

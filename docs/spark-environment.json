@@ -1,0 +1,136 @@
+{
+  "measured_date": "2026-10-17",
+  "architecture": "aarch64",
+  "gpu": "NVIDIA GB10",
+  "driver": "580.178.04",
+  "runtime": {
+    "torch": "2.14.0+cu130",
+    "torchvision": "0.29.0+cu130",
+    "cuda_runtime": "13.0",
+    "cuda_available": true,
+    "gpu": "NVIDIA GB10",
+    "compute_capability": [
+      12,
+      1
+    ],
+    "onnxruntime": "1.31.0",
+    "onnx_providers": [
+      "AzureExecutionProvider",
+      "CPUExecutionProvider"
+    ],
+    "opencv": "5.0.0",
+    "pyav": "18.1.0"
+  },
+  "sources": [
+    {
+      "name": "ComfyUI",
+      "sha": "fc04da91b2ab12f99e4716371a7e4f98ac982597",
+      "version": "0.41.0"
+    },
+    {
+      "name": "ComfyUI-KJNodes",
+      "sha": "17195fcfa8a05f601b766a0f09c9733284f47416",
+      "version": "1.5.2"
+    },
+    {
+      "name": "ComfyUI-Manager",
+      "sha": "4d3bed4b569205124a52444caf25de1719fae0de",
+      "version": "3.42"
+    },
+    {
+      "name": "ComfyUI-VideoHelperSuite",
+      "sha": "4d907bee61e92c2e65af3bd6383a4e4d356126d1",
+      "version": "1.7.9"
+    },
+    {
+      "name": "ComfyUI-WanVideoWrapper",
+      "sha": "088128b224242e110d3906c6750e9a3a348a659b",
+      "version": "1.4.7"
+    },
+    {
+      "name": "ComfyUI-segment-anything-2",
+      "sha": "0c35fff5f382803e2310103357b5e985f5437f32",
+      "version": "1.0.2"
+    },
+    {
+      "name": "comfyui_controlnet_aux",
+      "sha": "a587a4c1594524c1d2de5cd1a86cd868ff448e1c",
+      "version": "1.1.6"
+    }
+  ],
+  "packages": {
+    "torch": "2.14.0+cu130",
+    "torchvision": "0.29.0+cu130",
+    "torchaudio": "2.11.0",
+    "comfy-sdk": "0.5.0",
+    "comfy-api-proxy": "0.1.6",
+    "fastapi": "0.143.3",
+    "uvicorn": "0.54.0",
+    "sam-2": "1.0",
+    "av": "18.1.0",
+    "imageio-ffmpeg": "0.6.0",
+    "opencv-python-headless": "5.0.0.93",
+    "onnxruntime": "1.31.0",
+    "numpy": "2.5.2",
+    "transformers": "5.17.0",
+    "diffusers": "0.41.0",
+    "safetensors": "0.8.0",
+    "iopath": "0.1.10"
+  },
+  "node_imports": [
+    {
+      "pack": "ComfyUI-Manager",
+      "import": "PASS"
+    },
+    {
+      "pack": "ComfyUI-WanVideoWrapper",
+      "import": "PASS"
+    },
+    {
+      "pack": "ComfyUI-VideoHelperSuite",
+      "import": "PASS"
+    },
+    {
+      "pack": "comfyui_controlnet_aux",
+      "import": "PASS"
+    },
+    {
+      "pack": "ComfyUI-segment-anything-2",
+      "import": "PASS"
+    },
+    {
+      "pack": "ComfyUI-KJNodes",
+      "import": "PASS"
+    }
+  ],
+  "fallbacks": {
+    "attention": "PyTorch SDPA; SageAttention and xformers not installed or required. Binary-download probes alone do not prove GPU kernel compatibility.",
+    "decord": "No cp312 Linux ARM binary; VideoHelperSuite uses ffmpeg/OpenCV/PyAV.",
+    "onnxruntime-gpu": "1.31.0 aarch64 CUDA13 binary available; CPU onnxruntime installed as portable fallback, DWPose uses CUDA TorchScript.",
+    "mediapipe": "1.1.1 aarch64 binary available but old solutions/framework APIs absent; optional unrelated MediaPipe preprocessors not provisioned.",
+    "optional_Wan_FantasyPortrait": "Warns missing onnx; not needed for Animate or VACE."
+  },
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "cuda_visible_memory_bytes": 130661208064,
+  "server": {
+    "url": "http://192.168.1.186:8191",
+    "flags": [
+      "--listen",
+      "0.0.0.0",
+      "--port",
+      "8191",
+      "--offline",
+      "--use-pytorch-cross-attention",
+      "--disable-xformers",
+      "--preview-method",
+      "none",
+      "--cache-none"
+    ],
+    "registered_classes": 1196,
+    "partner_api_classes": 0,
+    "fresh_restart_import_check": "All six requested packs passed",
+    "full_object_info_path": "/home/admin/image_gen/openjutsu/reports/object_info.json",
+    "physical_LAN_client_tested": false,
+    "temporary_app_and_proxy_stopped": true
+  }
+}

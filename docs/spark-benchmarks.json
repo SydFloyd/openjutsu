@@ -1,0 +1,1352 @@
+{
+  "date_UTC": "2026-10-17",
+  "width": 832,
+  "height": 480,
+  "fps": 16,
+  "seed": 20261016,
+  "memory_method": "nvidia-smi ComfyUI process allocation sampled every 2 seconds; overlapping unified host/CUDA memory views are not additive; sampled peaks may miss transients.",
+  "direct": [
+    {
+      "mode": "restyle",
+      "frames": 33,
+      "seconds": 391.92481494206004,
+      "server_seconds": 390.982,
+      "settings": {
+        "steps": 20,
+        "cfg": 5.0,
+        "shift": 8.0
+      },
+      "passed": true,
+      "memory": {
+        "sample_interval_seconds": 2.0,
+        "samples": 196,
+        "sampled_peak_comfy_process_GiB": 47.8994140625,
+        "minimum_host_available_GiB": 66.4122314453125,
+        "sampling_errors": []
+      },
+      "prompt_id": "db5a4cde-11df-4fab-99d1-7eb277896695",
+      "variant": "initial",
+      "reference": "openjutsu_reference.png",
+      "pose_face_rendering": null,
+      "quality": null,
+      "colour_quality": null,
+      "encoded_video": {
+        "frames": 33,
+        "fps": 16.0,
+        "width": 832,
+        "height": 480
+      }
+    },
+    {
+      "mode": "swap",
+      "frames": 33,
+      "seconds": 382.23979697888717,
+      "server_seconds": 381.203,
+      "settings": {
+        "steps": 20,
+        "cfg": 5.0,
+        "shift": 8.0
+      },
+      "passed": true,
+      "memory": {
+        "sample_interval_seconds": 2.0,
+        "samples": 192,
+        "sampled_peak_comfy_process_GiB": 47.8681640625,
+        "minimum_host_available_GiB": 63.19282531738281,
+        "sampling_errors": []
+      },
+      "prompt_id": "b1cf5537-afa9-46b2-8024-815ad7e585f7",
+      "variant": "initial",
+      "reference": "blue-sphere-reference.png",
+      "pose_face_rendering": null,
+      "quality": null,
+      "colour_quality": null,
+      "encoded_video": {
+        "frames": 33,
+        "fps": 16.0,
+        "width": 832,
+        "height": 480
+      }
+    },
+    {
+      "mode": "recast",
+      "frames": 33,
+      "seconds": 330.8288923720829,
+      "server_seconds": 330.109,
+      "settings": {
+        "steps": 20,
+        "cfg": 5.0,
+        "shift": 8.0
+      },
+      "passed": true,
+      "memory": {
+        "sample_interval_seconds": 2.0,
+        "samples": 166,
+        "sampled_peak_comfy_process_GiB": 47.6044921875,
+        "minimum_host_available_GiB": 62.66168975830078,
+        "sampling_errors": []
+      },
+      "prompt_id": "9a37b30a-a4d8-4639-a8dd-6bdc40dd14cf",
+      "variant": "initial",
+      "reference": "sintel-reference.png",
+      "pose_face_rendering": "enable",
+      "quality": null,
+      "colour_quality": null,
+      "encoded_video": {
+        "frames": 33,
+        "fps": 16.0,
+        "width": 832,
+        "height": 480
+      }
+    },
+    {
+      "mode": "recast",
+      "frames": 33,
+      "seconds": 182.3324473851826,
+      "server_seconds": 181.553,
+      "settings": {
+        "steps": 20,
+        "cfg": 1.0,
+        "shift": 5.0
+      },
+      "passed": true,
+      "memory": {
+        "sample_interval_seconds": 2,
+        "samples": 92,
+        "sampled_peak_comfy_process_GiB": 47.5732421875,
+        "minimum_host_available_GiB": 65.84199142456055,
+        "sampling_errors": []
+      },
+      "prompt_id": "00bc0e6e-c930-44ca-b419-bc59b5278251",
+      "variant": "final corrected conditioning",
+      "reference": "openjutsu_aligned_character.png",
+      "pose_face_rendering": "disable",
+      "quality": {
+        "visual_pass": false,
+        "notes": "Exactly 33 frames and one character after body-only pose control and manual nose alignment. Lower-body geometry is badly distorted with detached/elongated leg shapes in sampled frames 13/19/26/32. The torso-framed driver and full-body cartoon still have incompatible body proportions. Export the matched-reference full run instead; automatic pose retargeting is not implemented."
+      },
+      "colour_quality": null,
+      "encoded_video": {
+        "frames": 33,
+        "fps": 16.0,
+        "width": 832,
+        "height": 480
+      }
+    },
+    {
+      "mode": "swap",
+      "frames": 33,
+      "seconds": 238.77914407104254,
+      "server_seconds": 236.358,
+      "settings": {
+        "steps": 12,
+        "cfg": 3.0,
+        "shift": 5.0
+      },
+      "passed": true,
+      "memory": {
+        "sample_interval_seconds": 2,
+        "samples": 120,
+        "sampled_peak_comfy_process_GiB": 48.2138671875,
+        "minimum_host_available_GiB": 65.65287780761719,
+        "sampling_errors": []
+      },
+      "prompt_id": "4775f943-6a54-4382-8f7b-0dac37d62f33",
+      "variant": "final corrected conditioning",
+      "reference": "blue-sphere-reference.png",
+      "pose_face_rendering": null,
+      "quality": {
+        "visual_pass": true,
+        "notes": "Exactly 33 decoded frames; blue object detected in all 33. Sampled frames retain one blue sphere, source movement and room layout, without an obvious halo."
+      },
+      "colour_quality": {
+        "fixture": "Expected blue sphere in the original procedural red-ball scene",
+        "rule": "At least 1000 pixels per frame with B>R+50 and B>G+25, inside a 131x129 region following the known ball trajectory (x=330+5*frame, y=323).",
+        "frames": 33,
+        "minimum_blue_pixels": 7265,
+        "maximum_blue_pixels": 7513,
+        "blue_object_frames": 33,
+        "passed": true,
+        "per_frame_blue_pixels": [
+          7458,
+          7347,
+          7342,
+          7322,
+          7432,
+          7347,
+          7463,
+          7356,
+          7363,
+          7356,
+          7368,
+          7317,
+          7265,
+          7322,
+          7434,
+          7375,
+          7346,
+          7390,
+          7450,
+          7348,
+          7407,
+          7405,
+          7451,
+          7345,
+          7397,
+          7386,
+          7435,
+          7308,
+          7391,
+          7370,
+          7513,
+          7358,
+          7352
+        ]
+      },
+      "encoded_video": {
+        "frames": 33,
+        "fps": 16.0,
+        "width": 832,
+        "height": 480
+      }
+    }
+  ],
+  "browser": [
+    {
+      "mode": "recast",
+      "frames": 33,
+      "seconds": 326.7253139191307,
+      "setup_seconds": 0.35857226396910846,
+      "settings": {
+        "steps": 20,
+        "cfg": 5,
+        "shift": 8
+      },
+      "passed": true,
+      "memory": {
+        "sample_interval_seconds": 2,
+        "samples": 164,
+        "sampled_peak_comfy_process_GiB": 47.7294921875,
+        "minimum_host_available_GiB": 62.57232666015625,
+        "sampling_errors": []
+      },
+      "comfy_jobs": [
+        "c23261e1-f8bc-4244-a6a5-fde2c36350c0"
+      ],
+      "chunks": 1,
+      "reference": null,
+      "prompt": null,
+      "quality": {
+        "visual_pass": false,
+        "notes": "Browser-to-SDK execution and playback passed, but the original cartoon-reference output duplicates the character. This run predates the body-only pose correction."
+      },
+      "colour_quality": null,
+      "encoded_video": {
+        "frames": 33,
+        "fps": 16.0,
+        "width": 832,
+        "height": 480
+      },
+      "browser_errors": [],
+      "browser_video": {
+        "width": 832,
+        "height": 480,
+        "duration": 2.0625,
+        "readyState": 4
+      }
+    },
+    {
+      "mode": "restyle",
+      "frames": 33,
+      "seconds": 346.98812133888714,
+      "setup_seconds": 0.2788235410116613,
+      "settings": {
+        "steps": 20,
+        "cfg": 5,
+        "shift": 8
+      },
+      "passed": true,
+      "memory": {
+        "sample_interval_seconds": 2,
+        "samples": 174,
+        "sampled_peak_comfy_process_GiB": 48.0107421875,
+        "minimum_host_available_GiB": 63.84745407104492,
+        "sampling_errors": []
+      },
+      "comfy_jobs": [
+        "b3ed1113-be50-4348-82fd-56dde279e55d"
+      ],
+      "chunks": 1,
+      "reference": null,
+      "prompt": null,
+      "quality": {
+        "visual_pass": true,
+        "notes": "8mm preset without reference produces a warm photographic scene and retains ball movement."
+      },
+      "colour_quality": null,
+      "encoded_video": {
+        "frames": 33,
+        "fps": 16.0,
+        "width": 832,
+        "height": 480
+      },
+      "browser_errors": [],
+      "browser_video": {
+        "width": 832,
+        "height": 480,
+        "duration": 2.0625,
+        "readyState": 4
+      }
+    },
+    {
+      "mode": "swap",
+      "frames": 33,
+      "seconds": 393.6490680400748,
+      "setup_seconds": 4.574931475101039,
+      "settings": {
+        "steps": 20,
+        "cfg": 5,
+        "shift": 8
+      },
+      "passed": true,
+      "memory": {
+        "sample_interval_seconds": 2,
+        "samples": 197,
+        "sampled_peak_comfy_process_GiB": 48.2138671875,
+        "minimum_host_available_GiB": 63.611602783203125,
+        "sampling_errors": []
+      },
+      "comfy_jobs": [
+        "98e23643-f91f-4cae-9cdb-931982a283cf"
+      ],
+      "chunks": 1,
+      "reference": null,
+      "prompt": null,
+      "quality": {
+        "visual_pass": true,
+        "notes": "Browser foreground click, SAM2 tracking and blue sphere replacement passed; sampled object boundaries retain the room."
+      },
+      "colour_quality": null,
+      "encoded_video": {
+        "frames": 33,
+        "fps": 16.0,
+        "width": 832,
+        "height": 480
+      },
+      "browser_errors": [],
+      "browser_video": {
+        "width": 832,
+        "height": 480,
+        "duration": 2.0625,
+        "readyState": 4
+      }
+    }
+  ],
+  "full": [
+    {
+      "mode": "recast",
+      "frames": 77,
+      "seconds": 472.8303488069214,
+      "setup_seconds": 0.36361210490576923,
+      "settings": {
+        "steps": 20,
+        "cfg": 1.0,
+        "strength": 1.0,
+        "mask_expand": 8,
+        "shift": 5.0
+      },
+      "passed": true,
+      "memory": {
+        "sample_interval_seconds": 2,
+        "samples": 237,
+        "sampled_peak_comfy_process_GiB": 47.5732421875,
+        "minimum_host_available_GiB": 63.141483306884766,
+        "sampling_errors": []
+      },
+      "comfy_jobs": [
+        "4844a257-fc26-42ea-9ff5-6c07b6b50a4b"
+      ],
+      "chunks": 1,
+      "reference": "sintel-reference.png",
+      "prompt": "A friendly animated character walking naturally",
+      "quality": {
+        "visual_pass": true,
+        "notes": "Corrected body/hand pose control and matched Sintel reference produce exactly 77 frames. Sampled frames 0/15/30/46/61/76 retain one character. The full fixture repeats a short source excerpt, so source loop transitions remain."
+      },
+      "colour_quality": null,
+      "encoded_video": {
+        "frames": 77,
+        "fps": 16.0,
+        "width": 832,
+        "height": 480
+      },
+      "browser_errors": null,
+      "browser_video": null
+    },
+    {
+      "mode": "restyle",
+      "frames": 81,
+      "seconds": 1056.136427770136,
+      "setup_seconds": 0.167919005965814,
+      "settings": {
+        "steps": 20,
+        "cfg": 3.0,
+        "strength": 1.0,
+        "mask_expand": 8,
+        "shift": 8.0
+      },
+      "passed": true,
+      "memory": {
+        "sample_interval_seconds": 2,
+        "samples": 528,
+        "sampled_peak_comfy_process_GiB": 53.0576171875,
+        "minimum_host_available_GiB": 58.612579345703125,
+        "sampling_errors": []
+      },
+      "comfy_jobs": [
+        "fb4f401e-9806-417f-a5b2-7e310cdab944"
+      ],
+      "chunks": 1,
+      "reference": null,
+      "prompt": "A red ball rolling across a studio floor",
+      "quality": {
+        "visual_pass": true,
+        "encoded_frames": 81,
+        "notes": "Sampled frames show a warm photographic room replacing the flat source, with the ball trajectory and camera layout retained."
+      },
+      "colour_quality": null,
+      "encoded_video": {
+        "frames": 81,
+        "fps": 16.0,
+        "width": 832,
+        "height": 480
+      },
+      "browser_errors": null,
+      "browser_video": null
+    },
+    {
+      "mode": "swap",
+      "frames": 81,
+      "seconds": 696.1490994468331,
+      "setup_seconds": 10.631925141904503,
+      "settings": {
+        "steps": 12,
+        "cfg": 3.0,
+        "strength": 1.0,
+        "mask_expand": 8,
+        "shift": 5.0
+      },
+      "passed": true,
+      "memory": {
+        "sample_interval_seconds": 2,
+        "samples": 348,
+        "sampled_peak_comfy_process_GiB": 53.3701171875,
+        "minimum_host_available_GiB": 60.04829788208008,
+        "sampling_errors": []
+      },
+      "comfy_jobs": [
+        "996bfbb8-494f-43fa-9cb2-04d31ab5c90a"
+      ],
+      "chunks": 1,
+      "reference": "blue-sphere-reference.png",
+      "prompt": "A single glossy cobalt-blue toy sphere, rich blue surface, matching scene lighting",
+      "quality": {
+        "visual_pass": true,
+        "notes": "Exactly 81 decoded frames. Blue object detected inside the expected tracked region in all 81 frames (minimum 8009 blue pixels). Sampled frames 0/16/32/48/64/80 retain the room and a single blue sphere; a slightly faceted lower edge remains."
+      },
+      "colour_quality": {
+        "fixture": "Expected blue sphere in the original procedural red-ball scene",
+        "rule": "At least 1000 pixels per frame with B>R+50 and B>G+25, inside a 131x129 region following the known ball trajectory (x=330+5*frame, y=323).",
+        "frames": 81,
+        "minimum_blue_pixels": 8009,
+        "maximum_blue_pixels": 8196,
+        "blue_object_frames": 81,
+        "passed": true,
+        "per_frame_blue_pixels": [
+          8141,
+          8091,
+          8196,
+          8117,
+          8138,
+          8089,
+          8125,
+          8054,
+          8106,
+          8068,
+          8066,
+          8046,
+          8067,
+          8031,
+          8127,
+          8035,
+          8067,
+          8013,
+          8101,
+          8022,
+          8056,
+          8025,
+          8101,
+          8034,
+          8080,
+          8056,
+          8121,
+          8027,
+          8073,
+          8044,
+          8110,
+          8054,
+          8104,
+          8038,
+          8094,
+          8019,
+          8038,
+          8037,
+          8093,
+          8032,
+          8041,
+          8044,
+          8061,
+          8026,
+          8072,
+          8048,
+          8092,
+          8021,
+          8042,
+          8027,
+          8102,
+          8009,
+          8032,
+          8023,
+          8075,
+          8009,
+          8032,
+          8026,
+          8076,
+          8042,
+          8059,
+          8030,
+          8075,
+          8022,
+          8026,
+          8037,
+          8068,
+          8033,
+          8042,
+          8048,
+          8079,
+          8031,
+          8061,
+          8046,
+          8109,
+          8043,
+          8079,
+          8063,
+          8090,
+          8107,
+          8085
+        ]
+      },
+      "encoded_video": {
+        "frames": 81,
+        "fps": 16.0,
+        "width": 832,
+        "height": 480
+      },
+      "browser_errors": null,
+      "browser_video": null
+    }
+  ],
+  "chunks": [
+    {
+      "mode": "recast",
+      "frames": 80,
+      "seconds": 488.9887150239665,
+      "setup_seconds": 0.37285690708085895,
+      "settings": {
+        "steps": 20,
+        "cfg": 1.0,
+        "strength": 1.0,
+        "mask_expand": 8,
+        "shift": 5.0
+      },
+      "passed": true,
+      "memory": {
+        "sample_interval_seconds": 2,
+        "samples": 245,
+        "sampled_peak_comfy_process_GiB": 47.6044921875,
+        "minimum_host_available_GiB": 64.22203063964844,
+        "sampling_errors": []
+      },
+      "comfy_jobs": [
+        "b94c27a7-804a-4495-bc7e-6dad048b6deb",
+        "8224844f-d376-42f4-ab52-eb5835e08f9e"
+      ],
+      "chunks": 2,
+      "reference": "sintel-reference.png",
+      "prompt": "A friendly animated character walking naturally",
+      "quality": {
+        "visual_pass": true,
+        "notes": "Sampled frames retain one character and coherent continuation across frames 44/45. The repeated source excerpt itself contains loop transitions."
+      },
+      "colour_quality": null,
+      "encoded_video": {
+        "frames": 80,
+        "fps": 16.0,
+        "width": 832,
+        "height": 480
+      },
+      "browser_errors": null,
+      "browser_video": null
+    },
+    {
+      "mode": "restyle",
+      "frames": 80,
+      "seconds": 990.067819664022,
+      "setup_seconds": 0.14935189601965249,
+      "settings": {
+        "steps": 20,
+        "cfg": 3.0,
+        "strength": 1.0,
+        "mask_expand": 8,
+        "shift": 8.0
+      },
+      "passed": true,
+      "memory": {
+        "sample_interval_seconds": 2,
+        "samples": 495,
+        "sampled_peak_comfy_process_GiB": 49.0576171875,
+        "minimum_host_available_GiB": 62.769561767578125,
+        "sampling_errors": []
+      },
+      "comfy_jobs": [
+        "f785274c-71dc-49ca-9775-be5f9cb38de7",
+        "013a299d-3b7a-4c83-be42-8fd4ba28ebbe"
+      ],
+      "chunks": 2,
+      "reference": null,
+      "prompt": "A red ball rolling across a studio floor",
+      "quality": {
+        "visual_pass": true,
+        "notes": "Exactly 80 decoded frames at 16 fps. Sampled overlap frames 35/36/40/44/45 retain the moving ball; room furniture and lighting drift between windows. No missing frames; crossfade smooths rather than eliminates this drift."
+      },
+      "colour_quality": null,
+      "encoded_video": {
+        "frames": 80,
+        "fps": 16.0,
+        "width": 832,
+        "height": 480
+      },
+      "browser_errors": null,
+      "browser_video": null
+    },
+    {
+      "mode": "swap",
+      "frames": 80,
+      "seconds": 673.3213613620028,
+      "setup_seconds": 11.187499744817615,
+      "settings": {
+        "steps": 12,
+        "cfg": 3.0,
+        "strength": 1.0,
+        "mask_expand": 8,
+        "shift": 5.0
+      },
+      "passed": true,
+      "memory": {
+        "sample_interval_seconds": 2,
+        "samples": 337,
+        "sampled_peak_comfy_process_GiB": 49.4951171875,
+        "minimum_host_available_GiB": 62.368064880371094,
+        "sampling_errors": []
+      },
+      "comfy_jobs": [
+        "f586d97c-5f29-4abf-8869-3132c6464243",
+        "09ea9653-5fd4-4c27-a404-92ff49a3278a"
+      ],
+      "chunks": 2,
+      "reference": "blue-sphere-reference.png",
+      "prompt": "A single glossy cobalt-blue toy sphere, rich blue surface, matching scene lighting",
+      "quality": {
+        "visual_pass": true,
+        "notes": "Blue sphere follows the target region in all 80 frames. Sampled overlap and seam frames show no obvious double edge or colour jump."
+      },
+      "colour_quality": {
+        "fixture": "Expected blue sphere in the original procedural red-ball scene",
+        "rule": "At least 1000 pixels per frame with B>R+50 and B>G+25, inside a 131x129 region following the known ball trajectory (x=330+5*frame, y=323).",
+        "frames": 80,
+        "minimum_blue_pixels": 7380,
+        "maximum_blue_pixels": 7663,
+        "blue_object_frames": 80,
+        "passed": true,
+        "per_frame_blue_pixels": [
+          7481,
+          7547,
+          7586,
+          7536,
+          7604,
+          7605,
+          7540,
+          7588,
+          7587,
+          7567,
+          7533,
+          7530,
+          7479,
+          7535,
+          7516,
+          7535,
+          7489,
+          7553,
+          7535,
+          7553,
+          7528,
+          7557,
+          7543,
+          7541,
+          7507,
+          7526,
+          7522,
+          7558,
+          7499,
+          7555,
+          7535,
+          7566,
+          7512,
+          7593,
+          7546,
+          7581,
+          7476,
+          7489,
+          7459,
+          7437,
+          7435,
+          7461,
+          7409,
+          7392,
+          7427,
+          7380,
+          7387,
+          7403,
+          7423,
+          7430,
+          7440,
+          7409,
+          7425,
+          7433,
+          7499,
+          7494,
+          7452,
+          7476,
+          7487,
+          7476,
+          7470,
+          7494,
+          7528,
+          7496,
+          7498,
+          7529,
+          7560,
+          7507,
+          7570,
+          7588,
+          7620,
+          7580,
+          7589,
+          7610,
+          7633,
+          7598,
+          7610,
+          7648,
+          7663,
+          7627
+        ]
+      },
+      "encoded_video": {
+        "frames": 80,
+        "fps": 16.0,
+        "width": 832,
+        "height": 480
+      },
+      "browser_errors": null,
+      "browser_video": null
+    }
+  ],
+  "tuning": [
+    {
+      "mode": "recast",
+      "frames": 33,
+      "seconds": 206.22373659093864,
+      "server_seconds": 204.597,
+      "settings": {
+        "steps": 12,
+        "cfg": 5.0,
+        "shift": 8.0
+      },
+      "passed": true,
+      "memory": {
+        "sample_interval_seconds": 2,
+        "samples": 104,
+        "sampled_peak_comfy_process_GiB": 47.5732421875,
+        "minimum_host_available_GiB": 66.06356430053711,
+        "sampling_errors": []
+      },
+      "prompt_id": "7f3edb61-935c-4379-a4de-2697d8937c14"
+    },
+    {
+      "mode": "recast",
+      "frames": 33,
+      "seconds": 330.8288923720829,
+      "server_seconds": 330.109,
+      "settings": {
+        "steps": 20,
+        "cfg": 5.0,
+        "shift": 8.0
+      },
+      "passed": true,
+      "memory": {
+        "sample_interval_seconds": 2.0,
+        "samples": 166,
+        "sampled_peak_comfy_process_GiB": 47.6044921875,
+        "minimum_host_available_GiB": 62.66168975830078,
+        "sampling_errors": []
+      },
+      "prompt_id": "9a37b30a-a4d8-4639-a8dd-6bdc40dd14cf"
+    },
+    {
+      "mode": "recast",
+      "frames": 33,
+      "seconds": 478.562224755995,
+      "server_seconds": 476.531,
+      "settings": {
+        "steps": 30,
+        "cfg": 5.0,
+        "shift": 8.0
+      },
+      "passed": true,
+      "memory": {
+        "sample_interval_seconds": 2,
+        "samples": 240,
+        "sampled_peak_comfy_process_GiB": 47.6357421875,
+        "minimum_host_available_GiB": 65.95233154296875,
+        "sampling_errors": []
+      },
+      "prompt_id": "1a58519d-9529-4936-95ce-5b730b061ae5"
+    },
+    {
+      "mode": "recast",
+      "frames": 33,
+      "seconds": 180.19346859608777,
+      "server_seconds": 179.112,
+      "settings": {
+        "steps": 20,
+        "cfg": 1.0,
+        "shift": 8.0
+      },
+      "passed": true,
+      "memory": {
+        "sample_interval_seconds": 2,
+        "samples": 91,
+        "sampled_peak_comfy_process_GiB": 47.6357421875,
+        "minimum_host_available_GiB": 65.92082595825195,
+        "sampling_errors": []
+      },
+      "prompt_id": "6c048e3c-7ea5-4ede-8b01-9850088a4b26"
+    },
+    {
+      "mode": "recast",
+      "frames": 33,
+      "seconds": 326.35975971701555,
+      "server_seconds": 325.46,
+      "settings": {
+        "steps": 20,
+        "cfg": 3.0,
+        "shift": 8.0
+      },
+      "passed": true,
+      "memory": {
+        "sample_interval_seconds": 2,
+        "samples": 164,
+        "sampled_peak_comfy_process_GiB": 47.6357421875,
+        "minimum_host_available_GiB": 66.3882064819336,
+        "sampling_errors": []
+      },
+      "prompt_id": "1060effd-b4b8-4976-bcd8-83659097f27b"
+    },
+    {
+      "mode": "recast",
+      "frames": 33,
+      "seconds": 326.4242311040871,
+      "server_seconds": 325.403,
+      "settings": {
+        "steps": 20,
+        "cfg": 6.0,
+        "shift": 8.0
+      },
+      "passed": true,
+      "memory": {
+        "sample_interval_seconds": 2,
+        "samples": 164,
+        "sampled_peak_comfy_process_GiB": 47.6357421875,
+        "minimum_host_available_GiB": 66.43956756591797,
+        "sampling_errors": []
+      },
+      "prompt_id": "ea3c1c7a-6e56-41d2-a89e-483c5a8b9fd3"
+    },
+    {
+      "mode": "recast",
+      "frames": 33,
+      "seconds": 180.16346771991812,
+      "server_seconds": 178.975,
+      "settings": {
+        "steps": 20,
+        "cfg": 1.0,
+        "shift": 5.0
+      },
+      "passed": true,
+      "memory": {
+        "sample_interval_seconds": 2,
+        "samples": 91,
+        "sampled_peak_comfy_process_GiB": 47.6357421875,
+        "minimum_host_available_GiB": 65.65744400024414,
+        "sampling_errors": []
+      },
+      "prompt_id": "4e4a8ecc-cb35-44a2-ae7f-f7f138b65c60"
+    },
+    {
+      "mode": "swap",
+      "frames": 33,
+      "seconds": 238.61828967300244,
+      "server_seconds": 236.171,
+      "settings": {
+        "steps": 12,
+        "cfg": 5.0,
+        "shift": 8.0
+      },
+      "passed": true,
+      "memory": {
+        "sample_interval_seconds": 2,
+        "samples": 120,
+        "sampled_peak_comfy_process_GiB": 48.2138671875,
+        "minimum_host_available_GiB": 65.70074844360352,
+        "sampling_errors": []
+      },
+      "prompt_id": "ace4ae60-9262-4bac-a7ea-30c7920d9453"
+    },
+    {
+      "mode": "swap",
+      "frames": 33,
+      "seconds": 382.23979697888717,
+      "server_seconds": 381.203,
+      "settings": {
+        "steps": 20,
+        "cfg": 5.0,
+        "shift": 8.0
+      },
+      "passed": true,
+      "memory": {
+        "sample_interval_seconds": 2.0,
+        "samples": 192,
+        "sampled_peak_comfy_process_GiB": 47.8681640625,
+        "minimum_host_available_GiB": 63.19282531738281,
+        "sampling_errors": []
+      },
+      "prompt_id": "b1cf5537-afa9-46b2-8024-815ad7e585f7"
+    },
+    {
+      "mode": "swap",
+      "frames": 33,
+      "seconds": 568.9223103870172,
+      "server_seconds": 567.097,
+      "settings": {
+        "steps": 30,
+        "cfg": 5.0,
+        "shift": 8.0
+      },
+      "passed": true,
+      "memory": {
+        "sample_interval_seconds": 2,
+        "samples": 285,
+        "sampled_peak_comfy_process_GiB": 48.2138671875,
+        "minimum_host_available_GiB": 65.56891632080078,
+        "sampling_errors": []
+      },
+      "prompt_id": "2e52a912-e0a5-4065-bb54-176ba4d1ea07"
+    },
+    {
+      "mode": "swap",
+      "frames": 33,
+      "seconds": 236.4786137728952,
+      "server_seconds": 235.571,
+      "settings": {
+        "steps": 12,
+        "cfg": 3.0,
+        "shift": 8.0
+      },
+      "passed": true,
+      "memory": {
+        "sample_interval_seconds": 2,
+        "samples": 119,
+        "sampled_peak_comfy_process_GiB": 48.2138671875,
+        "minimum_host_available_GiB": 65.66861724853516,
+        "sampling_errors": []
+      },
+      "prompt_id": "00a314f9-4e6e-4b99-9b91-3965f753f5fb"
+    },
+    {
+      "mode": "swap",
+      "frames": 33,
+      "seconds": 236.5043682809919,
+      "server_seconds": 234.645,
+      "settings": {
+        "steps": 12,
+        "cfg": 6.0,
+        "shift": 8.0
+      },
+      "passed": true,
+      "memory": {
+        "sample_interval_seconds": 2,
+        "samples": 119,
+        "sampled_peak_comfy_process_GiB": 48.2138671875,
+        "minimum_host_available_GiB": 65.65958786010742,
+        "sampling_errors": []
+      },
+      "prompt_id": "acd44263-1209-481f-ab8c-e0dee24f3063"
+    },
+    {
+      "mode": "swap",
+      "frames": 33,
+      "seconds": 236.50383623503149,
+      "server_seconds": 235.315,
+      "settings": {
+        "steps": 12,
+        "cfg": 3.0,
+        "shift": 5.0
+      },
+      "passed": true,
+      "memory": {
+        "sample_interval_seconds": 2,
+        "samples": 119,
+        "sampled_peak_comfy_process_GiB": 48.2138671875,
+        "minimum_host_available_GiB": 65.64435195922852,
+        "sampling_errors": []
+      },
+      "prompt_id": "15287392-535b-4994-b529-be858dc66788"
+    },
+    {
+      "mode": "restyle",
+      "frames": 33,
+      "seconds": 240.51106311799958,
+      "server_seconds": 238.716,
+      "settings": {
+        "steps": 12,
+        "cfg": 5.0,
+        "shift": 8.0
+      },
+      "passed": true,
+      "memory": {
+        "sample_interval_seconds": 2,
+        "samples": 121,
+        "sampled_peak_comfy_process_GiB": 48.2138671875,
+        "minimum_host_available_GiB": 65.73252487182617,
+        "sampling_errors": []
+      },
+      "prompt_id": "dc3c814d-befb-48b3-967a-fc2e91c4a2f1"
+    },
+    {
+      "mode": "restyle",
+      "frames": 33,
+      "seconds": 391.92481494206004,
+      "server_seconds": 390.982,
+      "settings": {
+        "steps": 20,
+        "cfg": 5.0,
+        "shift": 8.0
+      },
+      "passed": true,
+      "memory": {
+        "sample_interval_seconds": 2.0,
+        "samples": 196,
+        "sampled_peak_comfy_process_GiB": 47.8994140625,
+        "minimum_host_available_GiB": 66.4122314453125,
+        "sampling_errors": []
+      },
+      "prompt_id": "db5a4cde-11df-4fab-99d1-7eb277896695"
+    },
+    {
+      "mode": "restyle",
+      "frames": 33,
+      "seconds": 571.1152485930361,
+      "server_seconds": 569.697,
+      "settings": {
+        "steps": 30,
+        "cfg": 5.0,
+        "shift": 8.0
+      },
+      "passed": true,
+      "memory": {
+        "sample_interval_seconds": 2,
+        "samples": 286,
+        "sampled_peak_comfy_process_GiB": 48.2138671875,
+        "minimum_host_available_GiB": 64.38180160522461,
+        "sampling_errors": []
+      },
+      "prompt_id": "055a1a11-d469-45eb-8671-8fe87aa8c75b"
+    },
+    {
+      "mode": "restyle",
+      "frames": 33,
+      "seconds": 385.0575450740289,
+      "server_seconds": 384.336,
+      "settings": {
+        "steps": 20,
+        "cfg": 3.0,
+        "shift": 8.0
+      },
+      "passed": true,
+      "memory": {
+        "sample_interval_seconds": 2,
+        "samples": 193,
+        "sampled_peak_comfy_process_GiB": 48.2138671875,
+        "minimum_host_available_GiB": 65.33818435668945,
+        "sampling_errors": []
+      },
+      "prompt_id": "c91e36b5-84b2-456f-b976-85d450df81a7"
+    },
+    {
+      "mode": "restyle",
+      "frames": 33,
+      "seconds": 384.89493809104897,
+      "server_seconds": 384.168,
+      "settings": {
+        "steps": 20,
+        "cfg": 6.0,
+        "shift": 8.0
+      },
+      "passed": true,
+      "memory": {
+        "sample_interval_seconds": 2,
+        "samples": 193,
+        "sampled_peak_comfy_process_GiB": 48.2138671875,
+        "minimum_host_available_GiB": 65.5727653503418,
+        "sampling_errors": []
+      },
+      "prompt_id": "9c044613-54cf-44fe-a9ee-a52f3a0876a1"
+    },
+    {
+      "mode": "restyle",
+      "frames": 33,
+      "seconds": 385.0894666900858,
+      "server_seconds": 384.393,
+      "settings": {
+        "steps": 20,
+        "cfg": 3.0,
+        "shift": 5.0
+      },
+      "passed": true,
+      "memory": {
+        "sample_interval_seconds": 2,
+        "samples": 193,
+        "sampled_peak_comfy_process_GiB": 48.2138671875,
+        "minimum_host_available_GiB": 65.6715316772461,
+        "sampling_errors": []
+      },
+      "prompt_id": "78bf7d56-8ddb-43ad-95ed-ae80125a0da1"
+    }
+  ],
+  "choices": {
+    "restyle": {
+      "steps": 20,
+      "cfg": 3.0,
+      "shift": 8.0
+    },
+    "swap": {
+      "steps": 12,
+      "cfg": 3.0,
+      "shift": 5.0
+    },
+    "recast": {
+      "steps": 20,
+      "cfg": 1.0,
+      "shift": 5.0
+    }
+  },
+  "quality_cases": [
+    {
+      "mode": "recast",
+      "frames": 77,
+      "seconds": 466.9372619839851,
+      "setup_seconds": 0.36892751208506525,
+      "settings": {
+        "steps": 20,
+        "cfg": 1.0,
+        "strength": 1.0,
+        "mask_expand": 8,
+        "shift": 5.0
+      },
+      "passed": true,
+      "memory": {
+        "sample_interval_seconds": 2,
+        "samples": 234,
+        "sampled_peak_comfy_process_GiB": 47.6357421875,
+        "minimum_host_available_GiB": 64.25239562988281,
+        "sampling_errors": []
+      },
+      "comfy_jobs": [
+        "4ae71e69-b0ac-4d9e-b3d6-dc764361e055"
+      ],
+      "chunks": 1,
+      "reference": "openjutsu_reference.png",
+      "prompt": "A friendly animated character walking naturally",
+      "quality": {
+        "visual_pass": false,
+        "notes": "Execution succeeded; persistent duplicate character. Original full-body cartoon reference differs from the torso-framed driver. This run predates the body-only pose fix."
+      },
+      "colour_quality": null,
+      "encoded_video": {
+        "frames": 77,
+        "fps": 16.0,
+        "width": 832,
+        "height": 480
+      },
+      "browser_errors": null,
+      "browser_video": null
+    },
+    {
+      "mode": "swap",
+      "frames": 81,
+      "seconds": 703.9188495459966,
+      "setup_seconds": 13.242915999144316,
+      "settings": {
+        "steps": 12,
+        "cfg": 3.0,
+        "strength": 1.0,
+        "mask_expand": 8,
+        "shift": 5.0
+      },
+      "passed": true,
+      "memory": {
+        "sample_interval_seconds": 2,
+        "samples": 351,
+        "sampled_peak_comfy_process_GiB": 53.4013671875,
+        "minimum_host_available_GiB": 59.73014450073242,
+        "sampling_errors": []
+      },
+      "comfy_jobs": [
+        "87b621ae-8ea5-4e07-ab4e-e543b1251015"
+      ],
+      "chunks": 1,
+      "reference": "blue-sphere-reference.png",
+      "prompt": "A glossy blue toy sphere replacing the red ball, preserve the room",
+      "quality": {
+        "visual_pass": false,
+        "issue": "Sphere stayed red in all81 frames although the blue reference and mask were correctly bound.",
+        "confirmed_input_fault": "The original object was not erased from the VACE control video; upstream inpainting inputs require a grey edit region.",
+        "followup_changes": [
+          "RGB127 erasure under the expanded mask",
+          "0.5 threshold on decoded mask",
+          "Descriptive prompt naming only the desired blue sphere"
+        ]
+      },
+      "colour_quality": {
+        "fixture": "Expected blue sphere in the original procedural red-ball scene",
+        "rule": "At least 1000 pixels per frame with B>R+50 and B>G+25, inside a 131x129 region following the known ball trajectory (x=330+5*frame, y=323).",
+        "frames": 81,
+        "minimum_blue_pixels": 0,
+        "maximum_blue_pixels": 0,
+        "blue_object_frames": 0,
+        "passed": false,
+        "per_frame_blue_pixels": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "encoded_video": {
+        "frames": 81,
+        "fps": 16.0,
+        "width": 832,
+        "height": 480
+      },
+      "browser_errors": null,
+      "browser_video": null
+    }
+  ]
+}

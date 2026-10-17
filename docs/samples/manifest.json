@@ -1,0 +1,41 @@
+{
+  "recast": {
+    "file": "recast.mp4",
+    "frames": 77,
+    "fps": 16,
+    "settings": {
+      "steps": 20,
+      "cfg": 1.0,
+      "shift": 5.0
+    },
+    "reference": "reference-sintel.png",
+    "source": "source-sintel-full.mp4",
+    "case": "full app run"
+  },
+  "swap": {
+    "file": "swap.mp4",
+    "frames": 81,
+    "fps": 16,
+    "settings": {
+      "steps": 12,
+      "cfg": 3.0,
+      "shift": 5.0
+    },
+    "reference": "reference-product.png",
+    "source": "source-ball-full.mp4",
+    "case": "full app run"
+  },
+  "restyle": {
+    "file": "restyle.mp4",
+    "frames": 81,
+    "fps": 16,
+    "settings": {
+      "steps": 20,
+      "cfg": 3.0,
+      "shift": 8.0
+    },
+    "reference": null,
+    "source": "source-ball-full.mp4",
+    "case": "full app run"
+  }
+}
