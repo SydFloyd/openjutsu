@@ -13,6 +13,8 @@ Open-source Motion Transfer, Object Swap and Restyle for video, the features of 
 
 `presets/` holds 13 one-click presets (anime, claymation, Lego, product swap, outfit swap, 8mm and more). To add one, drop in a new JSON file.
 
+See **[docs/SPARK_HANDOFF.md](docs/SPARK_HANDOFF.md)** for the DGX Spark bring-up checklist.
+
 ## Architecture
 Browser UI → FastAPI (`app/`): upload, SAM 2 click-to-mask, preset → patch workflow JSON → ComfyUI `/prompt` (`COMFY_URL`) → `/history` + `/view` for the result.
 
