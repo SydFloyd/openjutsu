@@ -9,7 +9,7 @@
  "2": {
   "class_type": "CLIPLoader",
   "inputs": {
-   "clip_name": "umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+   "clip_name": "umt5_xxl_fp16.safetensors",
    "type": "wan",
    "device": "default"
   }
@@ -17,7 +17,7 @@
  "3": {
   "class_type": "VAELoader",
   "inputs": {
-   "vae_name": "wan_2.1_vae.safetensors"
+   "vae_name": "Wan2_1_VAE_bf16.safetensors"
   }
  },
  "4": {
@@ -27,7 +27,7 @@
     "1",
     0
    ],
-   "shift": 8.0
+   "shift": 5.0
   }
  },
  "5": {
@@ -100,11 +100,50 @@
   "class_type": "GrowMask",
   "inputs": {
    "mask": [
-    "17",
+    "23",
     0
    ],
    "expand": 8,
    "tapered_corners": true
+  }
+ },
+ "19": {
+  "class_type": "EmptyImage",
+  "inputs": {
+   "width": 832,
+   "height": 480,
+   "batch_size": 1,
+   "color": 8355711
+  }
+ },
+ "20": {
+  "class_type": "ImageCompositeMasked",
+  "inputs": {
+   "destination": [
+    "11",
+    0
+   ],
+   "source": [
+    "19",
+    0
+   ],
+   "x": 0,
+   "y": 0,
+   "resize_source": true,
+   "mask": [
+    "18",
+    0
+   ]
+  }
+ },
+ "23": {
+  "class_type": "ThresholdMask",
+  "inputs": {
+   "mask": [
+    "17",
+    0
+   ],
+   "value": 0.5
   }
  },
  "30": {
@@ -128,7 +167,7 @@
    "batch_size": 1,
    "strength": 1.0,
    "control_video": [
-    "11",
+    "20",
     0
    ],
    "control_masks": [
@@ -161,8 +200,8 @@
     2
    ],
    "seed": 0,
-   "steps": 20,
-   "cfg": 5.0,
+   "steps": 12,
+   "cfg": 3.0,
    "sampler_name": "uni_pc",
    "scheduler": "simple",
    "denoise": 1.0
@@ -215,8 +254,7 @@
     0
    ],
    "filename_prefix": "openjutsu/out",
-   "format": "auto",
-   "codec": "auto"
+   "format": "mp4"
   }
  }
 }
