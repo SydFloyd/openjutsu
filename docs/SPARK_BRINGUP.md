@@ -1,6 +1,6 @@
 # DGX Spark bring-up
 
-Measured on 2026-10-17 UTC on GB10, aarch64, 128 GB unified memory. The local ComfyUI endpoint is **http://192.168.1.186:8191**. This is a LAN address, not a public hosted endpoint.
+Measured on 2026-10-17 UTC on GB10, aarch64, 128 GB unified memory. The ComfyUI endpoint is represented as `http://<SPARK_HOST>:8191`; substitute the hostname for your deployment. Deployment-specific details are retained in local operator notes outside version control.
 
 ## Environment and models
 
@@ -23,7 +23,7 @@ CUDA is detected and a BF16 CUDA matrix multiply passed. The existing ARM CUDA r
 
 Full package details: [spark-environment.json](spark-environment.json). Pack import success does not imply that every optional node in each pack was executed. These three graphs use core Wan nodes and controlnet_aux; the app uses Meta's SAM2 library.
 
-All nine installed files (83,010,511,102 bytes total) passed SHA-256 verification. Paths below are relative to `/home/admin/image_gen/openjutsu/ComfyUI/`. Pinned sources, hashes, sizes and licenses are in [spark-models.json](spark-models.json).
+All nine installed files (83,010,511,102 bytes total) passed SHA-256 verification. Paths below are relative to `<COMFYUI_DIR>/`. Pinned sources, hashes, sizes and licenses are in [spark-models.json](spark-models.json).
 
 | Model | Installed path |
 |---|---|
@@ -140,15 +140,13 @@ CPU assembly was also exercised at the full 30-second limit: seven production-si
 
 The app uses the [official Comfy SDK](https://docs.comfy.org/development/api-development/sdks), with the self-hosted [API proxy](https://github.com/Comfy-Org/comfy-api-proxy). Assets, submission, status and output retrieval use the SDK workflow surface. There are no Router calls or partner/API nodes. ComfyUI runs with `--offline` and exposes zero partner/API classes.
 
-Final checks: **17 CPU tests passed** for window coverage, final padding, lossless slicing/continuation, frame assembly and audio restoration. The dependency overlay's `pip check` reports no broken requirements. Every benchmark output was decoded and checked for 832×480, 16 fps and the expected frame count. Actual child job histories and memory samples are saved on Spark under `/home/admin/image_gen/openjutsu/reports/handoff/`.
+Final checks: **17 CPU tests passed** for window coverage, final padding, lossless slicing/continuation, frame assembly and audio restoration. The dependency overlay's `pip check` reports no broken requirements. Every benchmark output was decoded and checked for 832×480, 16 fps and the expected frame count. Actual child job histories and memory samples are saved on Spark under `<REPORTS_DIR>/handoff/`.
 
 After all GPU jobs finished, the temporary FastAPI app and SDK proxy were stopped. ComfyUI was restarted with the final dependencies: all six requested packs imported again, all three graphs passed the [fresh schema check](spark-workflow-validation.json), and the catalog contains **1,196 classes and zero partner/API classes**. The server runs `--listen 0.0.0.0 --port 8191 --offline --use-pytorch-cross-attention --disable-xformers --preview-method none --cache-none`.
 
-Both `http://192.168.1.186:8191/system_stats` and `/object_info` returned HTTP 200 after the restart. Earlier checks from an existing Docker bridge namespace also returned 200. A separate physical LAN client was not available for verification. No firewall settings were changed. The complete final catalog is saved at `/home/admin/image_gen/openjutsu/reports/object_info.json` (also `reports/handoff/object_info-final.json`), with final stats and startup logs beside it.
+Both `/system_stats` and `/object_info` returned HTTP 200 after the restart. A separate physical LAN client was not available for verification. The complete final catalog is saved at `<REPORTS_DIR>/object_info.json` (also `<REPORTS_DIR>/handoff/object_info-final.json`), with final stats and startup logs beside it.
 
-ComfyUI remains running as the user inference service `openjutsu-comfyui.service`; restart it with `systemctl --user restart openjutsu-comfyui.service`. Its launcher is `/home/admin/image_gen/openjutsu/start-comfyui.sh`. The transient unit is for the current boot; the launcher can also run directly after a reboot. Keep the app and proxy on the laptop or another CPU host for ongoing use. No persistent app/dashboard service was added to Spark, and no public endpoint was deployed.
-
-The existing inference gateway remains active. SHA-256 comparisons confirm its unit and model-profile configuration are unchanged. Qwen remains unloaded following the owner's pause; no automatic reload was requested.
+Absolute installation paths and operational commands are retained in local operator notes outside version control. Keep the app and proxy on the laptop or another CPU host for ongoing use. No persistent app/dashboard service was added to Spark, and no public endpoint was deployed.
 
 ## Samples and credits
 

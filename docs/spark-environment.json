@@ -113,7 +113,7 @@
   "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
   "cuda_visible_memory_bytes": 130661208064,
   "server": {
-    "url": "http://192.168.1.186:8191",
+    "url": "http://<SPARK_HOST>:8191",
     "flags": [
       "--listen",
       "0.0.0.0",
@@ -129,7 +129,7 @@
     "registered_classes": 1196,
     "partner_api_classes": 0,
     "fresh_restart_import_check": "All six requested packs passed",
-    "full_object_info_path": "/home/admin/image_gen/openjutsu/reports/object_info.json",
+    "full_object_info_path": "<REPORTS_DIR>/object_info.json",
     "physical_LAN_client_tested": false,
     "temporary_app_and_proxy_stopped": true
   }

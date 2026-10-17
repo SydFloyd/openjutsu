@@ -1,5 +1,5 @@
 {
-  "path_base": "/home/admin/image_gen/openjutsu/ComfyUI",
+  "path_base": "<COMFYUI_DIR>",
   "verified": "All nine installed files SHA-256 checked against the pinned download manifest.",
   "total_bytes": 83010511102,
   "models": [
