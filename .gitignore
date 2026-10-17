@@ -1,0 +1,5 @@
+work/
+models/
+__pycache__/
+*.pt
+*.safetensors

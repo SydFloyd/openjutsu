@@ -1,0 +1,10 @@
+fastapi>=0.110
+uvicorn[standard]>=0.29
+python-multipart>=0.0.9
+httpx>=0.27
+opencv-python-headless>=4.9
+numpy
+torch  # on DGX Spark install the aarch64 CUDA wheel per NVIDIA docs first
+# SAM 2.1 (click-to-mask). Install from source:
+#   pip install "git+https://github.com/facebookresearch/sam2.git"
+huggingface_hub>=0.23

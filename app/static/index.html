@@ -1,0 +1,30 @@
+<!doctype html><html><head><meta charset="utf-8"><title>OpenJutsu</title>
+<style>body{font-family:system-ui;background:#111;color:#eee;max-width:980px;margin:auto;padding:20px}
+.card{background:#1c1c1c;padding:16px;border-radius:10px;margin:12px 0}canvas{max-width:100%;cursor:crosshair}
+button,select,input{padding:8px;border-radius:6px;border:0;margin:4px}button{background:#7c5cff;color:#fff}
+.presets{display:flex;flex-wrap:wrap;gap:6px}.p{background:#2a2a2a;padding:8px 12px;border-radius:20px;cursor:pointer}.p.on{background:#7c5cff}</style></head>
+<body><h1>OpenJutsu</h1><p>Open-source motion transfer, object swap &amp; restyle. Runs on open-weights Wan models via your own ComfyUI.</p>
+<div class="card"><h3>1. Upload clip</h3><input type="file" id="vid" accept="video/*"><button onclick="up()">Upload</button></div>
+<div class="card"><h3>2. Click the subject (left = include, shift+click = exclude)</h3>
+<canvas id="cv"></canvas><br><button onclick="doMask()">Track mask through clip</button><button onclick="pts=[];draw()">Clear</button><div id="mp"></div></div>
+<div class="card"><h3>3. Pick a preset</h3><div class="presets" id="ps"></div>
+<p>Reference image (character / product / style): <input type="file" id="ref" accept="image/*"></p>
+<p><input id="prompt" placeholder="optional extra description" size="60"> seed <input id="seed" type="number" value="0" style="width:90px"></p>
+<button onclick="run()">Generate</button> <span id="st"></span></div>
+<div class="card"><h3>Result</h3><div id="out"></div></div>
+<script>
+let sid=null,pts=[],img=new Image(),preset=null;const cv=document.getElementById('cv'),cx=cv.getContext('2d');
+fetch('/api/presets').then(r=>r.json()).then(ps=>{const el=document.getElementById('ps');ps.forEach(p=>{const b=document.createElement('span');
+b.className='p';b.textContent=p.id+' · '+p.mode;b.onclick=()=>{preset=p.id;[...el.children].forEach(c=>c.classList.remove('on'));b.classList.add('on')};el.appendChild(b)})});
+async function up(){const f=new FormData();f.append('video',vid.files[0]);const j=await (await fetch('/api/upload',{method:'POST',body:f})).json();
+sid=j.session;img.onload=()=>{cv.width=img.width;cv.height=img.height;draw()};img.src='/api/frame/'+sid}
+function draw(){cx.drawImage(img,0,0);pts.forEach(p=>{cx.fillStyle=p[2]?'#0f0':'#f00';cx.beginPath();cx.arc(p[0],p[1],8,0,7);cx.fill()})}
+cv.onclick=e=>{const r=cv.getBoundingClientRect(),s=cv.width/r.width;pts.push([(e.clientX-r.left)*s,(e.clientY-r.top)*s,e.shiftKey?0:1]);draw()}
+async function doMask(){const f=new FormData();f.append('sid',sid);f.append('points',JSON.stringify(pts));st.textContent='tracking…';
+const j=await (await fetch('/api/mask',{method:'POST',body:f})).json();mp.innerHTML='<img src="'+j.preview+'" style="max-width:100%">';st.textContent=''}
+async function run(){const f=new FormData();f.append('sid',sid);f.append('preset',preset);f.append('prompt',prompt.value);f.append('seed',seed.value);
+if(ref.files[0])f.append('reference',ref.files[0]);const r=await fetch('/api/run',{method:'POST',body:f});const j=await r.json();
+if(!r.ok){st.textContent='error: '+JSON.stringify(j);return}st.textContent='queued '+j.prompt_id;poll(j.prompt_id)}
+async function poll(id){const j=await (await fetch('/api/status/'+id)).json();if(!j.done){setTimeout(()=>poll(id),3000);return}
+st.textContent='done';out.innerHTML=j.outputs.map(u=>'<video controls loop autoplay src="'+u+'" style="max-width:100%"></video>').join('')}
+</script></body></html>
